@@ -1,0 +1,36 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="item_spacing_horizontal">10dp</dimen>
+    <dimen name="item_spacing_vertical">10dp</dimen>
+    <dimen name="font_size_big">20sp</dimen>
+    <dimen name="font_size_normal">16sp</dimen>
+    <dimen name="font_size_8">8sp</dimen>
+    <dimen name="font_size_small">12sp</dimen>
+    <dimen name="font_size_title">26sp</dimen>
+    <dimen name="elevation_cards">2dp</dimen>
+    <dimen name="height_toolbar">56dp</dimen>
+    <dimen name="elevation_toolbar">4dp</dimen>
+    <dimen name="elevation_dialog">24dp</dimen>
+    <dimen name="height_divider">1dp</dimen>
+    <dimen name="height_text_only_tab">48dp</dimen>
+    <dimen name="height_toolbar_with_subtitle">72dp</dimen>
+    <dimen name="width_photo_template_list">200dp</dimen>
+    <dimen name="gallery_thumbnail_height">50dp</dimen>
+    <dimen name="gallery_thumbnail_width">60dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="padding8">8dp</dimen>
+    <dimen name="padding12">12dp</dimen>
+    <dimen name="margin4">4dp</dimen>
+    <dimen name="padding4">4dp</dimen>
+    <dimen name="width100">100dp</dimen>
+    <dimen name="width200">200dp</dimen>
+    <dimen name="padding16">16dp</dimen>
+    <dimen name="padding32">32dp</dimen>
+    <dimen name="padding24">24dp</dimen>
+    <dimen name="padding2">2dp</dimen>
+
+</resources>
