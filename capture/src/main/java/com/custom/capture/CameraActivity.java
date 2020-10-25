@@ -1,6 +1,7 @@
 package com.custom.capture;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.ColorDrawable;
@@ -58,7 +59,13 @@ public class CameraActivity extends BaseSpinnyCameraActivity {
             public void onClick(View v) {
                 saveBitmap(bitmapData);
                 dialog.dismiss();
-                //finish();
+
+                Intent intent=new Intent();
+                intent.putExtra("image_file_name",photoName);
+                intent.putExtra("image_file_path",photoPath);
+                setResult(RESULT_OK,intent);
+
+                finish();
             }
         });
 
@@ -103,6 +110,7 @@ public class CameraActivity extends BaseSpinnyCameraActivity {
         if (outputDir != null) {
             String photoFileName = (photoName==null||photoName.isEmpty())?"IMG" + "_" + System.currentTimeMillis() + ".jpg":photoName;
             photoFile = new File(outputDir, photoFileName);
+            photoName=photoFileName;
         }
         return photoFile;
     }
@@ -123,6 +131,7 @@ public class CameraActivity extends BaseSpinnyCameraActivity {
                 }
             }
         }
+        photoPath=outputDir.getAbsolutePath();
         return outputDir;
     }
 
