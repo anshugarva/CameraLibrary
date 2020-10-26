@@ -57,18 +57,20 @@ public class CameraActivity extends BaseSpinnyCameraActivity {
         btn_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveBitmap(bitmapData);
-                dialog.dismiss();
-
                 Intent intent=new Intent();
-                intent.putExtra("image_file_name",photoName);
-                intent.putExtra("image_file_path",photoPath);
-                setResult(RESULT_OK,intent);
-
+                intent.putExtra("file_name",photoName);
+                intent.putExtra("path",photoPath);
+                try {
+                    saveBitmap(bitmapData);
+                    setResult(RESULT_OK,intent);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    setResult(RESULT_CANCELED,intent);
+                }
+                dialog.dismiss();
                 finish();
             }
         });
-
         // Discard button listener
         Button btn_discard = (Button) dialog.findViewById(R.id.btn_discard_photo_dialog);
         btn_discard.setOnClickListener(new View.OnClickListener() {
@@ -87,16 +89,12 @@ public class CameraActivity extends BaseSpinnyCameraActivity {
      *
      * @param data byte array to be saved.
      */
-    private void saveBitmap(byte[] data) {
-        File f = generatePhotoFile();
-        try {
-            OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(f));
+    private void saveBitmap(byte[] data) throws IOException{
+        //File f = generatePhotoFile();
+            FileOutputStream outputStream = new FileOutputStream(photoPath);
             outputStream.write(data);
             outputStream.flush();
             outputStream.close();
-        } catch (IOException e) {
-            DebugHandler.logException(e);
-        }
     }
 
     /**
@@ -138,8 +136,8 @@ public class CameraActivity extends BaseSpinnyCameraActivity {
     // get data from Activity Intent
     private void getBundleData() {
         Bundle bundle = getIntent().getExtras();
-        photoPath=getIntent().getStringExtra("image_file_path");
-        photoName=getIntent().getStringExtra("image_file_name");
+        photoPath=getIntent().getStringExtra("path");
+        photoName=getIntent().getStringExtra("file_name");
     }
 }
 
