@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         try {
-                            Intent intent=new Intent(MainActivity.this,Class.forName("com.custom.capture.CameraActivity"));
+                            Intent intent=new Intent(MainActivity.this,Class.forName("com.custom.camlib.CameraActivity"));
                             startActivity(intent);
                         } catch (ClassNotFoundException e) {
                             e.printStackTrace();
